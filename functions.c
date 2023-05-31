@@ -1,6 +1,5 @@
 #include "main.h"
-#include <stdarg.h>
-/************************* PRINT CHAR *************************/
+/*********************** PRINT CHAR ***********************/
 /**
 *print_char - Prints a char
 *@types: list of arguments
@@ -14,16 +13,10 @@
 int print_char(va_list types, char buffer[], int flags, int width,
 int precision, int size)
 {
-UNUSED(types)
-UNUSED(buffer)
-UNUSED(flags)
-UNUSED(width)
-UNUSED(precision)
-UNUSED(size)
 char c = va_arg(types, int);
 return (handle_write_char(c, buffer, flags, width, precision, size));
 }
-/************************* PRINT A STRING *************************/
+/*********************** PRINT A STRING ***********************/
 /**
 *print_string - prints a string
 *@types: list of arguments
@@ -39,11 +32,11 @@ int width, int precision, int size)
 {
 int length = 0, i;
 char *str = va_arg(types, char *);
-UNUSED(buffer)
-UNUSED(flags)
-UNUSED(width)
-UNUSED(precision)
-UNUSED(size)
+UNUSED(buffer);
+UNUSED(flags);
+UNUSED(width);
+UNUSED(precision);
+UNUSED(size);
 if (str == NULL)
 {
 str = "(null)";
@@ -66,7 +59,7 @@ return (width);
 }
 }
 return (write(1, str, length));
-/************************** PRINT PERCENT SIGN *************************/
+/************************ PRINT PERCENT SIGN ***********************/
 /**
 *print_percentage - prints a percentage
 *@types: list of arguments
@@ -88,7 +81,7 @@ UNUSED(size);
 UNUSED(types);
 return (write(1, "%%", 1));
 }
-/************************** PRINT INT *************************/
+/************************ PRINT INT ***********************/
 /**
 *print_int - prints a string
 *@types: list of arguments
@@ -123,7 +116,7 @@ buffer[i--] = (num % 10) + '0';
 i++;
 return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
-/************************* PRINT BINARY *************************/
+/*********************** PRINT BINARY ***********************/
 /**
 *print_binary - prints an unsigned number
 *@types: list of arguments
